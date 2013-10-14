@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+
+/****************************************
+		1. General Setting 
+*****************************************/
+
+html, body, div, span, applet, object, iframe, strong,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, legend, caption, 
+tbody, tfoot, thead, table, label, tr, th, td{
+	/*margin: 0;*/
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	list-style:none;
+	color: #000;
+	}
+
+html{
+	background-color: #FFF;
+}
+
+
+body{
+	color: #000;
+	font-size: 15px;
+	line-height: 26px;
+	font-family: Helvetica ;
+	} 
+
+a{
+	color: #000;
+	font-weight:100;
+	text-decoration: underline;
+}
+	a:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+.clear{ clear: both; line-height: 0}
+
+ img{
+background:none!important;
+}
+
+a:hover img{
+opacity:0.6;
+filter:alpha(opacity=60);
+-ms-filter: "alpha( opacity=60 )";
+background:none!important;
+}
+	
+.list_image {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/****************************************
+		2. Basic Layout 
+*****************************************/
+
+#wrapaper{
+	width: auto;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	background-position: top;
+}
+
+.main{
+	margin-left:auto;
+	margin-right:auto;
+	width:400px;
+	padding: 3%;
+	border: 1px solid #333;
+}
+
+.aco_title_box{
+    word-break:break-all;
+    /*padding-top:2px;
+    padding-bottom:2px;*/
+    width:200px;
+    padding-left:2%;
+    padding-right:2%;
+    border-top:1px solid #000;
+    line-height: 8px;
+    border-bottom:1px solid #000;
+    text-shadow: 1px 1px 1px #333;
+    text-align:center;
+    position:relative;
+    overflow: hidden;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #5DC2AD), color-stop(0.00, #B3E3D8));
+    background: -webkit-linear-gradient(top, #B3E3D8 0%, #5DC2AD 100%);
+    background: -moz-linear-gradient(top, #B3E3D8 0%, #5DC2AD 100%);
+    background: -o-linear-gradient(top, #B3E3D8 0%, #5DC2AD 100%);
+    background: -ms-linear-gradient(top, #B3E3D8 0%, #5DC2AD 100%);
+    background: linear-gradient(top, #B3E3D8 0%, #5DC2AD 100%);
+}
+
+.aco_menu_box{
+    word-break:break-all;
+    width:200px;
+    padding:2%;
+    line-height: 10px;
+    border-bottom:1px solid #000;
+    text-align:left;
+    position:relative;
+    overflow: hidden;
+    background-color:#CCC;
+    }
+
+
+#tabMenu ul{
+	width:300px;
+	border:#ccc 1px solid;
+	}
+#tabMenu li{
+	float:left;
+	}
+#tabMenu li a{
+	display:block;
+	width:100px;
+	height:48px;
+	line-height:50px;
+	text-align:center;
+	border:#ccc 1px solid;
+	}
+#tabBox1,#tabBox2,#tabBox3{
+	padding:5px;
+	width:290px;
+	height:300px;
+	border:#ccc 1px solid;
+	}
+#tabBox1{
+	background:#FCF;
+	}
+#tabBox2{
+	background:#FFC;
+	display:none;
+	}
+#tabBox3{
+	background:#ccc;
+	display:none;
+	}
+
+.tabselected a{
+	padding-top:5px;
+}
+
+/*#t_1{
+	padding-top:5px;
+}*/
+
+
+/****************************************
+		3.  Header, Menu
+*****************************************/
+
+
+/****************************************
+		4.  Main
+*****************************************/
+
+

@@ -1,0 +1,141 @@
+
+<html lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>sample</title>
+<link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+function changeText(){
+$(".about").text("<b>軽量/高速</b>なライブラリです");
+}
+
+// function changeText(){
+// $(".about").toggle();
+// }
+</script>
+
+<!-- アコーディオン -->
+<script type="text/javascript">
+	$(function(){
+		var flg_1 = 0;
+		$('#aco_plus').click(function(){
+			if (flg_1 == 0) {
+				$('#aco_plus').hide();
+				$('#aco_minus').show();
+				flg_1 = 1;
+			} else {
+				$('#aco_plus').show();
+				$('#aco_minus').hide();
+				flg_1 = 0;
+			}
+			$('#aco_menu').slideToggle('normal');
+		});
+		$('#aco_minus').click(function(){
+			if (flg_1 == 1) {
+				$('#aco_minus').hide();
+				$('#aco_plus').show();
+				flg_1 = 0;
+			} else {
+				$('#aco_minus').show();
+				$('#aco_plus').hide();
+				flg_1 = 1;
+			}
+			$('#aco_menu').slideToggle('normal');
+		});
+	});
+</script>
+
+
+<!-- タブ -->
+<script type="text/javascript">
+	// $(function(){
+	// 	$("#tabMenu li a").on("click", function() {
+	// 		$("#tabBoxes div").hide();
+	// 		$($(this).attr("href")).fadeToggle();
+	// 	});
+	// 	return false;
+	// });
+
+
+	$(function(){
+		$("#tabMenu li a").on("click", function() {
+
+
+			$("#tabBoxes div").hide();
+			$($(this).attr("href")).fadeToggle();
+		});
+
+		return false;
+	});
+
+	function select_tab(n){
+		for(var i=1; i<=3; i++){
+			if(i == n){
+				$("#t_" +i).addClass("tabselected");
+				console.log("Hello world");
+			} else {
+				$("#t_" +i).removeClass("tabselected");
+				}
+		}
+	}
+	
+</script>
+
+
+
+
+
+</head>
+<body>
+	<div id="wrapaper">
+		<div class="main">
+
+			<h1>サンプル</h1>
+				<p class="about" style="display:none;"><b>軽量/高速</b>なライブラリです</p>
+				<p class="about">サンプル</p>
+			<form>
+				<input type="button" value="書き替え" onClick="changeText()">
+			</form>
+
+			<div id="aco_plus" class="aco_title_box list_image ">
+				<p>アコーディオン・オン！</p>
+			</div>
+
+			<div id="aco_minus" class="aco_title_box list_image " style="display:none;">
+				<p>アコーディオン・オフ！</p>
+			</div>
+
+			<div id="aco_menu" class="aco_menu_box " style="display:none;">
+				<span>内容</span>
+			</div>
+
+
+
+
+			<div >
+				<ul id="tabMenu" >
+					<li id="t_1" onclick='select_tab(1)'><a href="#tabBox1">タブメニュー1</a></li>
+					<li id="t_2" onclick='select_tab(2)'><a href="#tabBox2">タブメニュー2</a></li>
+					<li id="t_3" onclick='select_tab(3)'><a href="#tabBox3">タブメニュー3</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+
+			<div id="tabBoxes">
+				<div id="tabBox1">タブボックス1</div>
+				<div id="tabBox2">タブボックス2</div>
+				<div id="tabBox3">タブボックス3</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
+
+
