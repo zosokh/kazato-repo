@@ -17,7 +17,7 @@ if (0 == $totalQty){
     assert(! headers_sent());
     $params = $_POST;
     $params[PARAM_ERROR] = '商品を選択してください';
-    header('Location: itemdetail_info.php?' .arrayToUrlParameter($params));
+    header('Location: index.php?' . arrayToUrlParameter($params));
     exit;
 }
 

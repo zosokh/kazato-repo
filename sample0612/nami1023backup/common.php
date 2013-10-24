@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 assert_options(ASSERT_BAIL, 1);
 
 define('PARAM_PHONE', 'phone');
@@ -136,16 +134,6 @@ function showCompleted($vo) {
 
 	// 関数内でrequireすることで$voとグローバル宣言した変数以外は利用できなくなり安全になる
 	require_once 'view/completed.php';
-}
-
-
-function showItemdetail($vo) {
-	global $ITEMS, $COLOR_LABEL;
-
-	assert(is_array($vo));
-
-	// 関数内でrequireすることで$voとグローバル宣言した変数以外は利用できなくなり安全になる
-	require_once 'view/itemdetail.php';
 }
 
 

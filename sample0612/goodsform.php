@@ -38,7 +38,7 @@
 
 
         // 全ての商品が未選択だった場合
-        if ($qtyall == 312){
+        if ($qtyall == null){
                 header('Location: index.php?itemError=1&phone_num=' . $_POST["phone_num"]);
                 exit;
         }

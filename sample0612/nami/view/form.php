@@ -3,7 +3,9 @@
 assert(isset($vo));
 assert(is_array($vo));
 
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
@@ -14,9 +16,9 @@ assert(is_array($vo));
         <div style="text-align:center;">
 
         <?php
-        if ($vo['itemError']) {
-            echo '<p style="color:#FF0000;">' . $vo['itemError'] . '</p>';
-        }
+        // if ($vo['itemError']) {
+        //     echo '<p style="color:#FF0000;">' . $vo['itemError'] . '</p>';
+        // }
         ?>
 
             <?php foreach ($ITEMS as $item) { ?>
@@ -28,30 +30,11 @@ assert(is_array($vo));
 
                 <div style="text-align:center; padding-top:50px; float:left;">
                     <div>
-                        <select name="<?php echo paramNameForItemColor($item['id']) ?>">
-
-                            <?php 
-
-                            if ($item['color'] == "none"){
-                            echo optionTag('none' , $vo['itemData'][$item['id']]['color'] , "色指定不可");
-                            } else{
-
-                            echo optionTag('red', $vo['itemData'][$item['id']]['color'], $COLOR_LABEL['red']);
-                            echo optionTag('blue', $vo['itemData'][$item['id']]['color'], $COLOR_LABEL['blue']);
-                            echo optionTag('green', $vo['itemData'][$item['id']]['color'], $COLOR_LABEL['green']);
-                            }
-                            ?>
-                        </select>
-                        <select name="<?php echo paramNameForItemQuantity($item['id']) ?>">
-                            <option value= "0">選択する</option>
-
-                            <?php
-                            for ($i = 1; $i <= 9; $i++) {
-                                echo optionTag($i, $vo['itemData'][$item['id']]['qty'], $i . ' 個');
-                            }
-                            ?>
-
-                        </select>
+                        
+                        <p><?php echo $item['name']; ?></p>
+                    </div>
+                    <div>
+                        <a href="itemdetail_info.php?<?php echo $item['id']; ?>"><p>商品を見る</p></a>
                     </div>
                 </div>
             </div>
@@ -65,21 +48,7 @@ assert(is_array($vo));
         <div style="clear:both;">
         </div>
 
-        <div style="text-align:center; margin-top:50px;">
-
-            <div style="margin-top:20px;">
-                <span>電話番語を入力してください</span><br>
-                <input type="text" name="<?php echo PARAM_PHONE; ?>" value="<?php echo $vo['phone']; ?>">
-            </div>
-
-            <div style="margin-top:20px;">
-                <span>住所を入力してください</span><br>
-                <textarea name="<?php echo PARAM_ADDRESS; ?>" rows="8" cols="40"><?php echo $vo['address']; ?></textarea>
-            </div>
-            
-            <input type="submit" value="注文を確定する !!!!">
-
-        </div>
+        
 
     </form>
 
