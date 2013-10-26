@@ -12,24 +12,31 @@ assert(is_array($vo));
 <body>
     <div style='text-align:center;'>
 
+        <div style="text-align:center; padding:20px;">
+            <p>ご注文ありがとうございました！</p>
+        </div>
+
         <table style="margin: auto;">
             <tr><th colspan="3" style="text-align: center">注文した内容</th></tr>
-            <tr><th>品目</th><th>色</th><th>個数</th></tr>
+            <tr><th>商品名</th><th>単価</th><th>数量</th><th>小計</th></tr>
 
-            <?php 
-
-            foreach ($ITEMS as $item) {
-                if (0 == $vo['itemData'][$item['id']]['qty']) {
-                    continue;
-                }
-                echo '<tr>';
-                echo '<td>' . $item['name'] . '</td>';
-                echo '<td>' . $COLOR_LABEL[$vo['itemData'][$item['id']]['color']] . '</td>';
-                echo '<td>' . $vo['itemData'][$item['id']]['qty'] . '</td>';
-                echo '</tr>';
-            }
-
-            ?>
+            <?php foreach($rows as $r) { ?>
+                <tr>
+                  <td>
+                    <div style="text-align:center;">
+                      <?php echo '<img src="' . $r['img'] . '" style="width:100px; height:100px;" />' ?>
+                    </div>
+                    <div style="text-align:center;">
+                      <p><?php echo $r['name'] ?></p>
+                    </div>
+                  </td>
+                  <td><?php echo $r['selectcolor'] ?></td>
+                  <td><?php echo $r['price'] ?></td>
+                  <td><?php echo $r['num'] ?></td>
+                  <td><?php echo $r['price'] * $r['num'] ?> 円</td>
+                </tr>
+            <?php } ?>
+            <tr><td colspan='2'> </td><td><strong>合計</strong></td><td><?php echo $sum ?> 円</td></tr>
             
         </table>
         <a href="index.php">戻る</a>

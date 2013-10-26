@@ -4,6 +4,7 @@ session_start();
 
 assert_options(ASSERT_BAIL, 1);
 
+define('PARAM_GUESTNAME', 'guestname');
 define('PARAM_PHONE', 'phone');
 define('PARAM_ADDRESS', 'address');
 define('PARAM_ERROR', 'itemError');
@@ -31,6 +32,12 @@ function receiveInput($input) {
 	$itemError = false;
 	if (isset($input[PARAM_ERROR])) {
 		$itemError = $input[PARAM_ERROR];
+	}
+
+	/// お客様名前
+	$guestname = '';
+	if (isset($input[PARAM_GUESTNAME])) {
+		$guestname = $input[PARAM_GUESTNAME];
 	}
 
 	/// 電話番号
@@ -65,6 +72,7 @@ function receiveInput($input) {
 
 	return array(
 		'itemError' => $itemError,
+		'guestname' => $guestname,
 		'phone' => $phone,
 		'address' => $address,
 		'itemData' => $itemData,
@@ -129,8 +137,17 @@ function showPreview($vo) {
 	require_once 'view/preview.php';
 }
 
-function showCompleted($vo) {
+function showBuy($vo) {
 	global $ITEMS, $COLOR_LABEL;
+
+	assert(is_array($vo));
+
+	// 関数内でrequireすることで$voとグローバル宣言した変数以外は利用できなくなり安全になる
+	require_once 'view/buy.php';
+}
+
+function showCompleted($vo) {
+	global $ITEMS, $COLOR_LABEL ,$rows, $sum;
 
 	assert(is_array($vo));
 
@@ -159,4 +176,16 @@ function colorChecker(){
         echo optionTag('green', $vo['itemData'][$item['id']]['color'], $COLOR_LABEL['green']);
         print_r($item['color'] );
 	}
+}
+
+function flont_error_qty(){
+  global $totalQty;
+    // 全ての商品が未選択だった場合
+    if (0 == $totalQty){
+        assert(! headers_sent());
+        $params = $_POST;
+        $params[PARAM_ERROR] = '数量をえらんでください。';
+        header('Location: itemdetail_info.php?' .$_POST['code']."&".arrayToUrlParameter($params));
+        exit;
+    }
 }
