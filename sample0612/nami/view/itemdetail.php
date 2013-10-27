@@ -29,8 +29,14 @@ assert(is_array($vo));
                     <img style="width:200px; height:200px;" src="<?php echo $item['img']; ?>">
                 </div>
 
-                <div style="text-align:center; padding-top:50px; float:left;">
-                    <div>
+                <div style="text-align:center; padding-top:10px; float:left;">
+                    <div style="text-align:left;">
+                        <p><?php echo $item['name']?></p>
+                    </div>
+                    <div style="text-align:left;">
+                        <span><?php echo $item['comment']?></span>
+                    </div>
+                    <div style="margin-top:20px;">
                         <select name="<?php echo paramNameForItemColor($item['id']) ?>">
 
                             <?php 

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 assert_options(ASSERT_BAIL, 1);
 
@@ -184,3 +183,24 @@ function flont_error_qty(){
         exit;
     }
 }
+
+
+function showKanriindex() {
+	global $ITEMS, $COLOR_LABEL;
+
+	require_once 'view/kanriindex.php';
+}
+
+
+function showInsert() {
+	global $ITEMS, $COLOR_LABEL,$error, $id, $name, $comment, $price,$color;
+
+	require_once 'view/insert.php';
+}
+
+function showUpload() {
+	global $ITEMS, $COLOR_LABEL,$error,$id ;
+
+	require_once 'view/upload.php';
+}
+?>
