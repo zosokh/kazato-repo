@@ -63,8 +63,13 @@ assert(is_array($vo));
                         <div style="text-align:left;">
                             <h4><?php echo $item['name']?></h4>
                         </div>
+                        
                         <div style="text-align:left;">
                             <span><?php echo $item['comment']?></span>
+                        </div>
+
+                        <div style="text-align:left;">
+                            <h3 ><span style="color:#d43f3a;"><?php echo $item['price']?>円</span></h3>
                         </div>
 
                         <div style="margin-top:20px;text-align:left;" class="col-md-12 col-sm-12">
