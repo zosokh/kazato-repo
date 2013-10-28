@@ -49,6 +49,7 @@
 // PDOのやつ
 $db = "mysql:dbname=sample0612"; "localhost" ;
 $db_selected = new PDO($db , 'zosokh' , '0000');;
+$db_selected->query('SET NAMES utf8');
 if (!$db_selected){
     die('データベース選択失敗です。'.mysql_error());
 }
