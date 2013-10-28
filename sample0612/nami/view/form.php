@@ -9,48 +9,64 @@ assert(is_array($vo));
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>Sample code！がんばろう</title>
+    <title>Sample code</title>
+    <link href="css/bootstrap.css" rel="stylesheet"　type="text/css" media="all">
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body >
-    <form method="POST" action="preview.php">
-        <div style="text-align:center;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color:#444;">
+            <ul class="nav navbar-nav">
+                <li class="active nav"><a href="#">Home</a></li>
+                <li><a href="#">kazato-hiei.net</a></li>
+            </ul>
+        </nav>
+        <div id="wrapaper">
+            <div id="header">
 
-        <?php
-        // if ($vo['itemError']) {
-        //     echo '<p style="color:#FF0000;">' . $vo['itemError'] . '</p>';
-        // }
-        ?>
-
-            <?php foreach ($ITEMS as $item) { ?>
-
-            <div style="width:450px; margin-left:auto; margin-right:auto;">
-                <div style="text-align:center; float:left; padding-right:50px;">
-                    <img style="width:200px; height:200px;" src="<?php echo $item['img']; ?>">
-                </div>
-
-                <div style="text-align:center; padding-top:50px; float:left;">
-                    <div>
-                        
-                        <p><?php echo $item['name']; ?></p>
+                <div class="page-header hero-head" style="border-bottom:1px solid #CCC;">
+                    <div class="title">
+                        <h4>EC SITE</h4>
                     </div>
-                    <div>
-                        <a href="itemdetail_info.php?<?php echo $item['id']; ?>"><p>商品を見る</p></a>
+                    <div class="head_btn">
+                        <a href="cart.php?callcart"><button type="button" class="btn btn-success">カートへ</button></a>
+                        <a href="kanri/"><button type="button" class="btn btn-danger">管理ページへ</button></a>
                     </div>
                 </div>
             </div>
-            <div style="clear:both;">
+
+            <div class="row">
+
+                <div class="itemlist_h1">
+                    <h1>ITEM LIST</h1>
+                </div>
+
+                <?php foreach ($ITEMS as $item) { ?>
+                <div class="col-md-3 col-sm-6" style="background-color: #FFF;">
+                      <div class="thumbnail ">
+                        <div class="item_imgbox">
+                            <img class="img-rounded img-responsive" src="<?php echo $item['img']; ?>" alt="">
+                        </div>
+                        <div class="caption">
+                          <h4><?php echo $item['name']; ?></h4>
+                          <p><a href="itemdetail_info.php?<?php echo $item['id']; ?>" class="btn btn-danger btn-lg" style="width:100%;">商品ページへ</a>
+                        </div>
+                      </div>
+                </div>
+                <?php } ?>
+
+            </div>
+            <div id="footer">
+                <div class="jumbotron black_footer">
+                </div>
+            
             </div>
 
-            <?php } ?>
-
         </div>
+    </div>
 
-        <div style="clear:both;">
-        </div>
-
-        
-
-    </form>
 
 </body>
 </html>
